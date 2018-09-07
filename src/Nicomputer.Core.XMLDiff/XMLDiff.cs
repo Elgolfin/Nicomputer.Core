@@ -4,7 +4,7 @@ using System.Xml;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Nicomputer
+namespace Nicomputer.Core
 {
     public class XMLDiff
     {
