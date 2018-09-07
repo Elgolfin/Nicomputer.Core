@@ -36,7 +36,7 @@ namespace Nicomputer
             return result;
         }
 
-        public string CompareXmlNodes(XmlNode legacyXmlNode, XmlNode newcallXmlNode)
+        public string CompareXmlNodes(XmlNode xmlNode1, XmlNode xmlNode2)
         {
             string xmlDiff = null;
             var sw = new StringWriter();
@@ -54,7 +54,7 @@ namespace Nicomputer
                                 XmlDiffOptions.IgnoreXmlDecl
                 };
 
-                var result = diff.Compare(legacyXmlNode, newcallXmlNode, xw);
+                var result = diff.Compare(xmlNode1, xmlNode2, xw);
 
                 if (result == false)
                 {
