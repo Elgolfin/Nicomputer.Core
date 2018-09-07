@@ -10,35 +10,42 @@ namespace Nicomputer.Core
     {
         
         public List<string> XpathList {get; set;}
+        public XmlNode ComparedXmlNode1 {get; private set;}
+        public XmlNode ComparedXmlNode2 {get; private set;}
+        public string XmlDiffResult {get; private set;}
 
         public XMLDiff () {
             XpathList = new List<string>{};
+            XmlDiffResult = String.Empty;
         }
 
         /// <summary>
-        /// In order to ignore XML nodes, we need to remove them from the XmlNode objects
+        /// Compare two XML Nodes
         /// </summary>
         /// <param name="xmlString1"></param>
         /// <param name="xmlString2"></param>
-        public string Compare(string xmlString1, string xmlString2)
+        public bool Compare(string xmlString1, string xmlString2, bool ignoreCase)
         {
-            IgnoreXmlCase(ref xmlString1);
-            IgnoreXmlCase(ref xmlString2);
+            if (ignoreCase) {
+                IgnoreXmlCase(ref xmlString1);
+                IgnoreXmlCase(ref xmlString2);
+            }
 
             var xmlNode1 = StringToXmlNode(xmlString1);
             var xmlNode2 = StringToXmlNode(xmlString2);
 
             IgnoreXmlNodes(xmlNode1);
             IgnoreXmlNodes(xmlNode2);
+            
+            ComparedXmlNode1 = xmlNode1;
+            ComparedXmlNode2 = xmlNode2;
 
-            var result = CompareXmlNodes(xmlNode1, xmlNode2);
-
-            return result;
+            return CompareXmlNodes(xmlNode1, xmlNode2);
         }
 
-        public string CompareXmlNodes(XmlNode xmlNode1, XmlNode xmlNode2)
+        public bool CompareXmlNodes(XmlNode xmlNode1, XmlNode xmlNode2)
         {
-            string xmlDiff = null;
+            bool result;
             var sw = new StringWriter();
             using (var xw = new XmlTextWriter(sw) { Formatting = System.Xml.Formatting.Indented })
             {
@@ -54,15 +61,15 @@ namespace Nicomputer.Core
                                 XmlDiffOptions.IgnoreXmlDecl
                 };
 
-                var result = diff.Compare(xmlNode1, xmlNode2, xw);
+                result = diff.Compare(xmlNode1, xmlNode2, xw);
 
                 if (result == false)
                 {
-                    xmlDiff = sw.ToString();
+                    XmlDiffResult = sw.ToString();
                 }
             }
             
-            return xmlDiff;
+            return result;
         }
         
         private void IgnoreXmlCase(ref string origString)
@@ -71,7 +78,8 @@ namespace Nicomputer.Core
         }
 
         /// <summary>
-        /// In order to ignore XML nodes, we need to remove them from the XmlNode objects
+        /// In order to ignore XML nodes,
+        /// we need to remove them from the XmlNode objects listed in the XPathList property
         /// </summary>
         /// <param name="xmlNode"></param>
         private void IgnoreXmlNodes(XmlNode xmlNode)
