@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace Nicomputer.Core.XMLDiff.Tests
+namespace Nicomputer.Core.XmlDiff.Tests
 {
     public class UnitTest1
     {

@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{79DF7DB6-B7A3-481D-B22E-E7C3F782098D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicomputer.Core.XMLDiff", "src\Nicomputer.Core.XMLDiff\Nicomputer.Core.XMLDiff.csproj", "{5E07DABA-9FE9-4AA3-8787-D5F80399BC66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicomputer.Core.XmlDiff", "src\Nicomputer.Core.XmlDiff\Nicomputer.Core.XmlDiff.csproj", "{5E07DABA-9FE9-4AA3-8787-D5F80399BC66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{33995558-D52A-4086-A7BF-CFFF130E8385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicomputer.Core.XMLDiff.Tests", "tests\Nicomputer.Core.XMLDiff.Tests\Nicomputer.Core.XMLDiff.Tests.csproj", "{742B1963-2B30-49FF-B378-CD0681A1C244}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicomputer.Core.XmlDiff.Tests", "tests\Nicomputer.Core.XmlDiff.Tests\Nicomputer.Core.XmlDiff.Tests.csproj", "{742B1963-2B30-49FF-B378-CD0681A1C244}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

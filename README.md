@@ -1,4 +1,4 @@
-# Nicomputer.XMLDiff
+# Nicomputer.Core
 
 ## Generate the nuget
 

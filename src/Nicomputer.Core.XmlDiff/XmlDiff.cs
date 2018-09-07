@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Nicomputer.Core
 {
-    public class XMLDiff
+    public class XmlDiff
     {
         
         public List<string> XpathList {get; set;}
@@ -14,7 +14,7 @@ namespace Nicomputer.Core
         public XmlNode ComparedXmlNode2 {get; private set;}
         public string XmlDiffResult {get; private set;}
 
-        public XMLDiff () {
+        public XmlDiff () {
             XpathList = new List<string>{};
             XmlDiffResult = String.Empty;
         }
@@ -49,7 +49,7 @@ namespace Nicomputer.Core
             var sw = new StringWriter();
             using (var xw = new XmlTextWriter(sw) { Formatting = System.Xml.Formatting.Indented })
             {
-                XmlDiff diff = new XmlDiff
+                Microsoft.XmlDiffPatch.XmlDiff diff = new Microsoft.XmlDiffPatch.XmlDiff
                 {
                     Options = XmlDiffOptions.IgnorePI |
                                 XmlDiffOptions.IgnoreChildOrder |
