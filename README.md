@@ -3,5 +3,5 @@
 ## Generate the nuget
 
 ```bash
-dotnet pack /p:PackageVersion=1.0.1
+dotnet pack
 ```
